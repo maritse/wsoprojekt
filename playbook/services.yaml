@@ -1,0 +1,11 @@
+- name: Get SSHD service version
+  hosts: 192.168.100.77
+  gather_facts: yes
+
+  tasks:
+    - name: Gather facts
+      setup:
+
+    - name: Display SSHD service version
+      debug:
+        msg: "SSHD service version: {{ ansible_facts['ansible_services']['sshd']['version'] }}"
