@@ -13,3 +13,5 @@ DB_PATH = "db/database.db"
 ANSIBLE_PLAYBOOK_PATH = "playbook/playbook-host"
 
 PFSENSE_ADDRESS = "192.168.100.79"
+
+IP_ADDRESSES = ["192.168.100.77", "192.168.100.80"]

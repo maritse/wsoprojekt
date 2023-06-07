@@ -1,5 +1,10 @@
-from ansible import get_package_facts_ansible, normalize_package_facts
+import schedule
+import time
+from logic import run_turn
 
-ip = ["192.168.100.77", "192.168.100.80"]
-data = get_package_facts_ansible(ip)
-print(normalize_package_facts(data, ip))
+# run function every 24h at 1 am
+schedule.every().day.at("01:00").do(run_turn, "The job is starting")
+
+while True:
+    schedule.run_pending()
+    time.sleep(60)

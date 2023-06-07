@@ -1,0 +1,8 @@
+download_url: https://galaxy.ansible.com/download/pfsensible-core-0.5.3.tar.gz
+format_version: 1.0.0
+name: core
+namespace: pfsensible
+server: https://galaxy.ansible.com/api/
+signatures: []
+version: 0.5.3
+version_url: https://galaxy.ansible.com/api/v2/collections/pfsensible/core/versions/0.5.3/

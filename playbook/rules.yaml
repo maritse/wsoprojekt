@@ -1,0 +1,14 @@
+---
+- name: "change rules for pfsense"
+  collections: ../collections/
+  pfsense_rule:
+    name: "rule changing"
+    action: { { action_pfsense } }
+    interface: { { interface_pfsense } }
+    ipprotocol: inet
+    protocol: { { protocol_pfsense } }
+    source: { { source_pfsense } }
+    destination: { { dest_ansible } }
+    destination_port: { { port_pfsense } }
+    after: "rule changing"
+    state: present
