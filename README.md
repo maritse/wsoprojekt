@@ -1,5 +1,1 @@
-# Instalacja środowiska
-    TODO
-
-TODO
-    pfsense API
+# Projekt z przedmiotu WSO
