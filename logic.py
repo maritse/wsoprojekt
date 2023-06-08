@@ -2,9 +2,9 @@ from ansible import get_all_host_data
 from data import download_api_nist, normalize_data_nist
 from utils import PORT_MAPPING
 from pfsense import add_new_rule
-from config import IP_ADDRESSES
-
+from config import IP_ADDRESSES, IP_ADDRESSES_MAPPING
 ips = IP_ADDRESSES
+ips_mapping = IP_ADDRESSES_MAPPING
 
 def run_turn():
     # get information about the host
@@ -12,7 +12,7 @@ def run_turn():
 
     #print(hosts_facts)
     #print(package_facts)
-
+    print(ips)
     status_list = []
     for one in hosts_facts:
         status = {}
@@ -75,15 +75,18 @@ def run_turn():
                 if port in description:
                     threat["port-to-block"] = PORT_MAPPING[port] 
 
-        print(status)
         status_list.append(status)
     # blocking procedure
+    rules_status = False
     for one in status_list:
         for threat in one["threats"]:
             if threat["port-to-block"]:
-                add_new_rule(one["ip"], threat["port-to-block"])
-                print("Nowa reguła została dodana")
-
+                #add_new_rule(one["ip"], threat["port-to-block"])
+                #print("Nowa reguła została dodana")
+                rules_status = True
+    if rules_status:
+        print("Rules have been added")
+    print(status_list[0]["threats"][0])
     return status_list
 
 
